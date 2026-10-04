@@ -1,6 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
-import { ref, toRaw } from "vue";
+import { onMounted, ref, toRaw } from "vue";
 import { useRouter } from "vue-router";
 import UserServices from "../services/UserServices.js";
 
@@ -26,7 +25,7 @@ onMounted(async () => {
 });
 
 function navigateToRecipes() {
-  router.push({ name: "recipes" });
+  return router.push({ name: "recipes" });
 }
 
 async function createAccount() {
@@ -75,6 +74,8 @@ function closeCreateAccount() {
 function closeSnackBar() {
   snackbar.value.value = false;
 }
+
+defineExpose({ navigateToRecipes });
 </script>
 
 <template>
