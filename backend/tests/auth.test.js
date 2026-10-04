@@ -33,10 +33,6 @@ describe("Feature 1 — User Authentication & Session Management", () => {
     await db.sequelize.sync();
   });
 
-  afterAll(async () => {
-    await db.sequelize.close();
-  });
-
   describe("US-1.1 — Register an account", () => {
     it("User registers with valid details", async () => {
       const { res } = await register();
