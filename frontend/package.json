@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "cross-env APP_ENV=development vite",
     "build": "cross-env APP_ENV=production vite build",
+    "bundle": "rm -rf deploy && mkdir deploy && cp -r dist deploy",
     "preview": "cross-env vite preview",
     "test": "vitest run",
     "test:watch": "vitest"
