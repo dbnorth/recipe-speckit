@@ -2,7 +2,7 @@
 
 **Feature ID:** 5
 **Branch pattern:** `feature/5-recipe-export`
-**Status:** Ready
+**Status:** Shipped
 **Created:** 2026-10-04
 **Input:** Signed-in users need a printable PDF of a recipe (ingredients, prices, and steps).
 **Depends on:** [Feature 2 — Recipe Management](feature-2-recipe-management.md), [Feature 4 — Recipe Composition](feature-4-recipe-composition.md)
@@ -146,11 +146,11 @@ Do not implement behavior not in this spec.
 
 ## Definition of Done
 
-*   [ ] Backend and frontend implemented per this spec (**FR-00N** satisfied)
-*   [ ] **Success Criteria (SC-00N)** met
-*   [ ] All mapped tests pass (`npm test`)
-*   [ ] Test Coverage Map complete
-*   [ ] `features/reference/behavior.md` updated (if product rules changed)
+*   [x] Backend and frontend implemented per this spec (**FR-00N** satisfied)
+*   [x] **Success Criteria (SC-00N)** met
+*   [x] All mapped tests pass (`npm test`)
+*   [x] Test Coverage Map complete
+*   [x] `features/reference/behavior.md` updated (if product rules changed)
 
 ---
 

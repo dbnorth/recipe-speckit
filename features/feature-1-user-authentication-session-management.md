@@ -2,7 +2,7 @@
 
 **Feature ID:** 1
 **Branch pattern:** `feature/1-user-authentication-session-management`
-**Status:** Ready
+**Status:** Shipped
 **Created:** 2026-10-04
 **Input:** People need accounts and sessions so they can create recipes and manage ingredients, while guests can still reach published recipes.
 **Related:** `features/reference/api.md`, `features/reference/data-model.md`, `features/reference/behavior.md`
@@ -299,13 +299,13 @@ Do not implement behavior not in this spec.
 
 ## Definition of Done
 
-*   [ ] Backend and frontend implemented per this spec (**FR-00N** satisfied)
-*   [ ] **Success Criteria (SC-00N)** met
-*   [ ] All mapped tests pass (`npm test`)
-*   [ ] Test Coverage Map complete
-*   [ ] `features/reference/data-model.md` updated (if schema changed)
-*   [ ] `features/reference/api.md` updated (if API changed)
-*   [ ] `features/reference/behavior.md` updated (if product rules changed)
+*   [x] Backend and frontend implemented per this spec (**FR-00N** satisfied)
+*   [x] **Success Criteria (SC-00N)** met
+*   [x] All mapped tests pass (`npm test`)
+*   [x] Test Coverage Map complete
+*   [x] `features/reference/data-model.md` updated (if schema changed)
+*   [x] `features/reference/api.md` updated (if API changed)
+*   [x] `features/reference/behavior.md` updated (if product rules changed)
 
 ---
 
