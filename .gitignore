@@ -4,6 +4,7 @@ node_modules/
 .env.agility
 dist/
 frontend/dist/
+frontend/deploy/
 backend/deploy/
 backend/logs/
 *.log

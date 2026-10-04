@@ -1,0 +1,13 @@
+[Unit]
+Description=Recipe example app Node.js API (OC CS Speckit)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/nodeapps/recipe-backend/
+ExecStart=npm run start
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
