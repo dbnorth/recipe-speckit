@@ -7,17 +7,17 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
   // Validate request
   if (req.body.stepNumber === undefined) {
-    const error = new Error("Step number cannot be empty for recipe step!");
-    error.statusCode = 400;
-    throw error;
+    return res.status(400).send({
+      message: "Step number cannot be empty for recipe step!",
+    });
   } else if (req.body.instruction === undefined) {
-    const error = new Error("Description cannot be empty for recipe step!");
-    error.statusCode = 400;
-    throw error;
+    return res.status(400).send({
+      message: "Description cannot be empty for recipe step!",
+    });
   } else if (req.body.recipeId === undefined) {
-    const error = new Error("Recipe ID cannot be empty for recipe step!");
-    error.statusCode = 400;
-    throw error;
+    return res.status(400).send({
+      message: "Recipe ID cannot be empty for recipe step!",
+    });
   }
 
   // Create a RecipeStep

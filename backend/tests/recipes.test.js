@@ -128,3 +128,65 @@ describe("Feature 2 — Recipe Management", () => {
     });
   });
 });
+
+describe("Feature 4 — Recipe Composition", () => {
+  beforeAll(async () => {
+    await db.sequelize.sync();
+  });
+
+  describe("US-4.1 — Update recipe details", () => {
+    it("Owner updates recipe details", async () => {
+      const user = await registerUser();
+      const created = await createRecipe(user.token, {
+        name: unique("Old Chili"),
+        description: "Original",
+        servings: 4,
+        time: 30,
+        isPublished: false,
+        userId: user.id,
+      });
+      expect(created.status).toBe(200);
+
+      const newName = unique("New Chili");
+      const updated = await request(app)
+        .put(`/recipeapi/recipes/${created.body.id}`)
+        .set("Authorization", `Bearer ${user.token}`)
+        .send({ name: newName });
+      expect(updated.status).toBe(200);
+      expect(updated.body.message).toBe("Recipe was updated successfully.");
+
+      const get = await request(app).get(
+        `/recipeapi/recipes/${created.body.id}`
+      );
+      expect(get.status).toBe(200);
+      const row = Array.isArray(get.body)
+        ? get.body.find((item) => item.id === created.body.id)
+        : get.body;
+      expect(row).toBeDefined();
+      expect(row.name).toBe(newName);
+    });
+
+    it("Non-owner cannot update a recipe", async () => {
+      const owner = await registerUser();
+      const other = await registerUser();
+      const created = await createRecipe(owner.token, {
+        name: unique("Owner Only"),
+        description: "Private",
+        servings: 2,
+        time: 15,
+        isPublished: false,
+        userId: owner.id,
+      });
+      expect(created.status).toBe(200);
+
+      const res = await request(app)
+        .put(`/recipeapi/recipes/${created.body.id}`)
+        .set("Authorization", `Bearer ${other.token}`)
+        .send({ name: unique("Hijacked") });
+      expect(res.status).toBe(404);
+      expect(res.body.message).toBe(
+        `Cannot find Recipe with id=${created.body.id}.`
+      );
+    });
+  });
+});
