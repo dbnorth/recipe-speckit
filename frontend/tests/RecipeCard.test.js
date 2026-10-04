@@ -9,6 +9,7 @@ import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import RecipeCard from "../src/components/RecipeCardComponent.vue";
+import RecipeReports from "../src/reports/RecipeReports.js";
 
 vi.mock("../src/services/RecipeIngredientServices.js", () => ({
   default: {
@@ -112,6 +113,48 @@ describe("Feature 2 — Recipe Management", () => {
       await flushPromises();
       expect(router.currentRoute.value.name).toBe("editRecipe");
       expect(router.currentRoute.value.params.id).toBe("42");
+    });
+  });
+});
+
+describe("Feature 5 — Recipe Export", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    vi.clearAllMocks();
+  });
+
+  describe("US-5.1 — Download a recipe PDF", () => {
+    it("Signed-in user downloads a recipe PDF", async () => {
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          id: 1,
+          firstName: "Jane",
+          lastName: "Doe",
+          email: "jane@example.com",
+          token: "test-token",
+        })
+      );
+      const router = makeRouter();
+      await router.push("/recipes");
+      await router.isReady();
+      const wrapper = await mountCard(router);
+      const pdf = wrapper.find(".mdi-file-pdf-box");
+      expect(pdf.exists()).toBe(true);
+      await pdf.trigger("click");
+      await flushPromises();
+      expect(RecipeReports.generateRecipePDF).toHaveBeenCalledWith(
+        expect.objectContaining({ id: 42, name: "Test Pancakes" })
+      );
+      expect(router.currentRoute.value.name).toBe("recipes");
+    });
+
+    it("Guest does not see the PDF icon", async () => {
+      const router = makeRouter();
+      await router.push("/recipes");
+      await router.isReady();
+      const wrapper = await mountCard(router);
+      expect(wrapper.find(".mdi-file-pdf-box").exists()).toBe(false);
     });
   });
 });
