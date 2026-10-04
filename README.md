@@ -207,7 +207,11 @@ For this course, **you** write the requirements half and the **data model**. You
 
 | ID | File | Branch | Depends on |
 |----|------|--------|------------|
-| — | *Add `feature-1-….md` after you write the first spec* | `feature/1-…` | — |
+| 1 | [feature-1-user-authentication-session-management.md](features/feature-1-user-authentication-session-management.md) | `feature/1-user-authentication-session-management` | — |
+| 2 | [feature-2-recipe-management.md](features/feature-2-recipe-management.md) | `feature/2-recipe-management` | 1 |
+| 3 | [feature-3-ingredient-catalog-management.md](features/feature-3-ingredient-catalog-management.md) | `feature/3-ingredient-catalog-management` | 1 |
+| 4 | [feature-4-recipe-composition.md](features/feature-4-recipe-composition.md) | `feature/4-recipe-composition` | 2, 3 |
+| 5 | [feature-5-recipe-export.md](features/feature-5-recipe-export.md) | `feature/5-recipe-export` | 2, 4 |
 
 New features: you own requirements + data model; Cursor helps with the remaining design sections. Still follow [features/framework.md](features/framework.md#feature-spec-template) for the overall shape of the file.
 
