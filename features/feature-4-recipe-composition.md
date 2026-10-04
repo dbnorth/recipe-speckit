@@ -2,7 +2,7 @@
 
 **Feature ID:** 4
 **Branch pattern:** `feature/4-recipe-composition`
-**Status:** Ready
+**Status:** Shipped
 **Created:** 2026-10-04
 **Input:** Authors need to edit a recipe’s details, line ingredients, and numbered steps (optionally attaching catalog ingredients to a step).
 **Depends on:** [Feature 2 — Recipe Management](feature-2-recipe-management.md), [Feature 3 — Ingredient Catalog Management](feature-3-ingredient-catalog-management.md)
@@ -276,13 +276,13 @@ Do not implement behavior not in this spec.
 
 ## Definition of Done
 
-*   [ ] Backend and frontend implemented per this spec (**FR-00N** satisfied)
-*   [ ] **Success Criteria (SC-00N)** met
-*   [ ] All mapped tests pass (`npm test`)
-*   [ ] Test Coverage Map complete
-*   [ ] `features/reference/data-model.md` updated (if schema changed)
-*   [ ] `features/reference/api.md` updated (if API changed)
-*   [ ] `features/reference/behavior.md` updated (if product rules changed)
+*   [x] Backend and frontend implemented per this spec (**FR-00N** satisfied)
+*   [x] **Success Criteria (SC-00N)** met
+*   [x] All mapped tests pass (`npm test`)
+*   [x] Test Coverage Map complete
+*   [x] `features/reference/data-model.md` updated (if schema changed)
+*   [x] `features/reference/api.md` updated (if API changed)
+*   [x] `features/reference/behavior.md` updated (if product rules changed)
 
 ---
 
