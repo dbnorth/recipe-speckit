@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== "test") {
 }
 
 var corsOptions = {
-  origin: "http://localhost:8082",
+  origin: process.env.CORS_ORIGIN || "http://localhost:8082",
 };
 
 app.use(cors(corsOptions));

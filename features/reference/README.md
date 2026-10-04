@@ -29,4 +29,8 @@ They do **not** authorize new scope — implement only from `features/feature-*.
 
 | Area | Introduced |
 |------|------------|
-| *(none yet)* | Add rows as features merge to `dev` |
+| Users, sessions, login/logout, Bearer writes | Feature 1 |
+| Recipes (published list, my list, create, cards) | Feature 2 |
+| Shared ingredient catalog | Feature 3 |
+| Recipe steps and recipe-line ingredients | Feature 4 |
+| Client-side recipe PDF export | Feature 5 |

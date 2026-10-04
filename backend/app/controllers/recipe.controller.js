@@ -8,29 +8,29 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
   // Validate request
   if (req.body.name === undefined) {
-    const error = new Error("Name cannot be empty for recipe!");
-    error.statusCode = 400;
-    throw error;
+    return res.status(400).send({
+      message: "Name cannot be empty for recipe!",
+    });
   } else if (req.body.description === undefined) {
-    const error = new Error("Description cannot be empty for recipe!");
-    error.statusCode = 400;
-    throw error;
+    return res.status(400).send({
+      message: "Description cannot be empty for recipe!",
+    });
   } else if (req.body.servings === undefined) {
-    const error = new Error("Servings cannot be empty for recipe!");
-    error.statusCode = 400;
-    throw error;
+    return res.status(400).send({
+      message: "Servings cannot be empty for recipe!",
+    });
   } else if (req.body.time === undefined) {
-    const error = new Error("Time cannot be empty for recipe!");
-    error.statusCode = 400;
-    throw error;
+    return res.status(400).send({
+      message: "Time cannot be empty for recipe!",
+    });
   } else if (req.body.isPublished === undefined) {
-    const error = new Error("Is Published cannot be empty for recipe!");
-    error.statusCode = 400;
-    throw error;
+    return res.status(400).send({
+      message: "Is Published cannot be empty for recipe!",
+    });
   } else if (req.body.userId === undefined) {
-    const error = new Error("User Id cannot be empty for recipe!");
-    error.statusCode = 400;
-    throw error;
+    return res.status(400).send({
+      message: "User Id cannot be empty for recipe!",
+    });
   }
 
   // Create a Recipe

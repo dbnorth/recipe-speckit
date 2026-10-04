@@ -36,9 +36,9 @@ for (const name of entries) {
   cpSync(from, join(deployDir, name), { recursive: true });
 }
 
-const serviceFile = join(root, "todo-speckit-backend.service");
+const serviceFile = join(root, "recipe-speckit-backend.service");
 if (existsSync(serviceFile)) {
-  cpSync(serviceFile, join(deployDir, "todo-speckit-backend.service"));
+  cpSync(serviceFile, join(deployDir, "recipe-speckit-backend.service"));
 }
 
 console.log(`Backend deploy artifact: ${deployDir}`);
